@@ -48,8 +48,8 @@ def posta(conta):
         print(f"Fazendo upload de: {video_path}")
 
         # Inicia a VM para este upload
-        nome_vm = 'sua_vm'  # Defina o nome da sua VM aqui
-        iniciar_vm(nome_vm)
+       # nome_vm = 'sua_vm'  # Defina o nome da sua VM aqui
+       # iniciar_vm(nome_vm)
 
         # Ignora vídeos vazios ou muito pequenos
         video_size = os.path.getsize(video_path)

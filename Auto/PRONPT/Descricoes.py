@@ -10,3 +10,4 @@ def juntar_descricoes(pasta_origem, arquivo_saida):
                     conteudo = infile.read().strip().replace('\n', ' ')
                     outfile.write(conteudo + '\n')  # Adiciona uma nova linha após cada descrição
 
+juntar_descricoes(r"C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\POWER-BOT\VIDEOS",r"C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\POWER-BOT\Auto\DESCRIÇAO\descricao.txt")

@@ -96,7 +96,6 @@ System handles multiple user accounts logging in, and will save this to system. 
 > 
 > python cli.py login -n my_saved_username
 > ```
-
 ### Upload Videos 🖼️:
 
 Users can select user, and upload a video from path or directly from a youtube shorts link.
