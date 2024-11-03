@@ -14,6 +14,7 @@ caminho_perfis = r'C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\PO
 TEMPO_ESPERA_POST = 30
 TEMPO_ESPERA_PERFIL = 120
 MAX_TENTATIVAS = 5
+MIN_VIEW = 5000000
 
 # Inicializar o gerenciador de proxies
 manager = ProxyManager()
@@ -37,7 +38,7 @@ def verificar_perfil_com_chromedriver(nome_perfil):
     driver.quit()
     return "Profile not found" not in source
 
-def baixar_apenas_videos_perfil(nome_perfil, pasta_destino):
+def baixar_apenas_videos_perfil(nome_perfil, pasta_destino,min_views):
     os.makedirs(pasta_destino, exist_ok=True)
     loader = instaloader.Instaloader()
     video_salvos = []
@@ -61,7 +62,7 @@ def baixar_apenas_videos_perfil(nome_perfil, pasta_destino):
     time.sleep(TEMPO_ESPERA_PERFIL)
 
     for post in profile.get_posts():
-        if post.is_video:
+        if post.is_video and post.video_view_count >= min_views:
             for tentativa in range(MAX_TENTATIVAS):
                 try:
                     print(f"Baixando vídeo do perfil {nome_perfil}: {post.date_utc.strftime('%Y-%m-%d_%H-%M-%S')}.mp4")
@@ -88,7 +89,7 @@ def baixa():
     todos_videos = []
     for perfil in perfis:
         print(f"Processando perfil: {perfil}")
-        videos = baixar_apenas_videos_perfil(perfil, pasta)
+        videos = baixar_apenas_videos_perfil(perfil, pasta,MIN_VIEW)
         if isinstance(videos, list):
             todos_videos.extend(videos)
 
