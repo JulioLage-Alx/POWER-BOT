@@ -14,7 +14,7 @@ caminho_perfis = r'C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\PO
 TEMPO_ESPERA_POST = 30
 TEMPO_ESPERA_PERFIL = 120
 MAX_TENTATIVAS = 5
-MIN_VIEW = 5000000
+MIN_VIEW = 259865
 
 # Inicializar o gerenciador de proxies
 manager = ProxyManager()
