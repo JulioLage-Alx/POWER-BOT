@@ -77,7 +77,7 @@ def posta(conta):
             try:
                 subprocess.run([
                     'python', 
-                    r'C:\Users\julio\OneDrive\Documentos\GitHub\TiktokAutoUploader\cli.py', 
+                    r'C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\POWER-BOT\TiktokAutoUploader\cli.py', 
                     'upload', 
                     '-u', 
                     conta, 

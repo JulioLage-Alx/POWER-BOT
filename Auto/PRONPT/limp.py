@@ -17,4 +17,4 @@ def remove_non_mp4_files(folder_path):
                 print(f"Arquivo removido: {filename}")
             except Exception as e:
                 print(f"Erro ao remover {filename}: {e}")
-remove_non_mp4_files(r"C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\POWER-BOT\VIDEOS")
+remove_non_mp4_files(r"C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\VIDEOS")
