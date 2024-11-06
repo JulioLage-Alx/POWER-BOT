@@ -1,10 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import Baixar as bx
-import sys
-import os
 import posti as ps
-import time 
 
 
 def escrever_no_txt(caminho_arquivo, texto):
