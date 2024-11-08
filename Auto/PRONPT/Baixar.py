@@ -5,7 +5,11 @@ import Descricoes as dc
 import limp as lp
 import os
 import time
-import requests
+import Editor as ed
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+
 
 # Configurações do projeto
 pasta = r'VIDEOS'
@@ -25,18 +29,25 @@ def get_new_proxy():
     return {'http': proxy, 'https': proxy}
 
 def verificar_perfil_com_chromedriver(nome_perfil):
-    options = uc.ChromeOptions()
-    options.add_argument("--headless")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
+    driver = None
+    try:
+        options = uc.ChromeOptions()
+        options.add_argument("--headless")
+        driver = uc.Chrome(options=options)
+        url_perfil = f'https://www.instagram.com/{nome_perfil}/'
+        driver.get(url_perfil)
 
-    driver = uc.Chrome(options=options)
-    url_perfil = f'https://www.instagram.com/{nome_perfil}/'
-    driver.get(url_perfil)
-    time.sleep(5)
-    source = driver.page_source
-    driver.quit()
-    return "Profile not found" not in source
+        WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.TAG_NAME, "body"))
+        )
+
+        source = driver.page_source
+        return "Profile not found" not in source
+    except Exception as e:
+        print(f"Erro: {e}")
+    finally:
+        if driver:
+            driver.quit()
 
 def baixar_apenas_videos_perfil(nome_perfil, pasta_destino,min_views):
     os.makedirs(pasta_destino, exist_ok=True)
@@ -100,6 +111,9 @@ def baixa():
     dc.juntar_descricoes(pasta, arquivo_saida)
     print(f"Descrições salvas em: {arquivo_saida}")
     lp.remove_non_mp4_files(pasta)
+    # Agora iterando sobre os vídeos baixados para editar
+    ed.editar_videos_na_pasta(pasta)
+    
 
 if __name__ == "__main__":
     baixa()

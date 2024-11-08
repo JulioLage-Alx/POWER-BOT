@@ -1,11 +1,11 @@
-# Importações
-from moviepy.editor import VideoFileClip, CompositeVideoClip, AudioFileClip
+from moviepy.editor import VideoFileClip, AudioFileClip, CompositeVideoClip
+from moviepy.editor import vfx
 import librosa
 import numpy as np
 from pydub import AudioSegment
-import os
 import wave
 import tempfile
+import os
 
 # Função para escrever WAV
 def write_wav(filename, data, samplerate):
@@ -66,14 +66,45 @@ def editar(video_path, final_video_path, fator_velocidade=1.02, momentos_volume=
         # Carregar o novo áudio com ruído e velocidade alterada
         new_audio = AudioFileClip(output_audio_path)
 
-        # Cortar o vídeo e atribuir o novo áudio
-        start_time = 0.1  # 100 ms
-        end_time = video.duration - 0.1  # 100 ms antes do fim
-        final_video = CompositeVideoClip([video.subclip(start_time, end_time)]).set_audio(new_audio)
+        # Ajustar a duração do áudio para garantir que tenha a mesma duração do vídeo
+        if new_audio.duration > video.duration:
+            new_audio = new_audio.subclip(0, video.duration)
+        elif new_audio.duration < video.duration:
+            # Expandir o áudio para a duração do vídeo
+            new_audio = new_audio.fx(vfx.loop, duration=video.duration)
 
-        # Exportar o vídeo final
-        final_video.write_videofile(final_video_path, codec='libx264', fps=video.fps)
+        # Atribuir o novo áudio ao vídeo
+        video_com_audio_novo = video.set_audio(new_audio)
 
-        # Fechar recursos de vídeo
+        # Salvar o vídeo final com o novo áudio
+        video_com_audio_novo.write_videofile(final_video_path, codec='libx264', audio_codec='aac', threads=4)
+
+        # Fechar recursos de vídeo e áudio
         video.close()
-        final_video.close()
+        new_audio.close()
+        video_com_audio_novo.close()
+        
+def editar_videos_na_pasta(pasta):
+    # Percorre todos os arquivos na pasta
+    for filename in os.listdir(pasta):
+        video_path = os.path.join(pasta, filename)
+        
+        # Verifica se é um arquivo de vídeo (com extensão .mp4)
+        if os.path.isfile(video_path) and filename.lower().endswith('.mp4'):
+            # Define o caminho de saída para o vídeo editado
+            final_video_path = os.path.join(pasta, f"editado_{filename}")
+            
+            # Aplica a função de edição no vídeo
+            print(f"Editando vídeo: {video_path}")
+            editar(video_path, final_video_path)
+            
+            # Exclui o vídeo original após a edição
+            os.remove(video_path)
+            print(f"Vídeo original excluído: {video_path}")
+        else:
+            print(f"Arquivo ignorado (não é vídeo): {video_path}")
+
+if __name__ == "__main__":
+    pasta = r"C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\VIDEOS"
+    
+    editar_videos_na_pasta(pasta)

@@ -1,3 +1,4 @@
+
 import os
 import logging
 import time
@@ -13,23 +14,28 @@ def iniciar_vm(nome_vm):
         print(f"Erro ao iniciar a VM {nome_vm}: {e}")
 
 def posta(conta):
+    
     # Configuração do log
     logging.basicConfig(level=logging.INFO, filename='upload_log.txt', filemode='a', 
                         format='%(asctime)s - %(levelname)s - %(message)s')
 
     # Caminhos dos arquivos e pastas
-    pasta_videos = r'C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\POWER-BOT\VIDEOS'
+    pasta_videos = r'C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\VIDEOS'
     descricao_path = r'C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\POWER-BOT\Auto\DESCRIÇAO\descricao.txt'
     linha_contador_path = r'C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\POWER-BOT\Auto\CONTADOR\LINHA_CONTADOR.TXT'
+    
     
     TEMPO_ESPERA = 30  # Ajuste do tempo para evitar bloqueio de requisições
     MAX_TENTATIVAS = 3  # Número máximo de tentativas para upload de cada vídeo
 
     # Garante que o diretório do contador exista
     os.makedirs(os.path.dirname(linha_contador_path), exist_ok=True)
+    
 
     # Carrega descrições do arquivo
     def carregar_descricoes(caminho):
+        
+        
         if os.path.exists(caminho):
             with open(caminho, 'r', encoding='utf-8') as descri:
                 return [linha.strip() for linha in descri.readlines() if linha.strip()]
@@ -38,17 +44,21 @@ def posta(conta):
     # Obter vídeos e descrições
     videos = [f for f in os.listdir(pasta_videos) if f.endswith('.mp4')]
     descricoes = carregar_descricoes(descricao_path)
+    
+    
 
     # Embaralha a lista de vídeos
     shuffle(videos)
+    
 
-    for video in videos[:10]:  # Processa até 10 vídeos por execução
+    for video in videos[:2]:  # Processa até 10 vídeos por execução
         video_path = os.path.join(pasta_videos, video)
         logging.info(f"Fazendo upload de: {video_path}")
         print(f"Fazendo upload de: {video_path}")
+        
 
         # Inicia a VM para este upload
-       # nome_vm = 'sua_vm'  # Defina o nome da sua VM aqui
+        # nome_vm = 'sua_vm'  # Defina o nome da sua VM aqui
        # iniciar_vm(nome_vm)
 
         # Ignora vídeos vazios ou muito pequenos
@@ -123,4 +133,5 @@ def posta(conta):
         time.sleep(TEMPO_ESPERA)
 
 if __name__ == "__main__":
-    posta('contaone')
+    
+    posta('redevizinha')

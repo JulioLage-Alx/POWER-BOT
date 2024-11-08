@@ -48,3 +48,20 @@
 2024-11-02 12:01:49,801 - INFO - Iniciando upload do vídeo: C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\POWER-BOT\VIDEOS\2024-05-06_14-13-25_UTC.mp4 com descrição: What’s your dream life look like?
 2024-11-02 12:02:02,630 - INFO - Upload concluído para: 2024-05-06_14-13-25_UTC.mp4
 2024-11-02 12:02:02,632 - INFO - Vídeo excluído: C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\POWER-BOT\VIDEOS\2024-05-06_14-13-25_UTC.mp4
+2024-11-07 23:18:58,746 - INFO - Fazendo upload de: C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\VIDEOS\2024-03-31_01-29-27_UTC.mp4
+2024-11-07 23:18:58,759 - INFO - Iniciando upload do vídeo: C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\VIDEOS\2024-03-31_01-29-27_UTC.mp4 com descrição: Link in bio
+ #Product #Find #Gift #GreatFind
+2024-11-07 23:19:12,649 - ERROR - Erro ao fazer upload de 2024-03-31_01-29-27_UTC.mp4 (tentativa 1): Command '['python', 'C:\\Users\\julio\\OneDrive\\Documentos\\BOOT-TIKTPK\\BOOT-TIKTPK\\POWER-BOT\\TiktokAutoUploader\\cli.py', 'upload', '-u', 'con', '-v', 'C:\\Users\\julio\\OneDrive\\Documentos\\BOOT-TIKTPK\\BOOT-TIKTPK\\VIDEOS\\2024-03-31_01-29-27_UTC.mp4', '-t', 'Link in bio\n #Product #Find #Gift #GreatFind']' returned non-zero exit status 1.
+2024-11-07 23:19:12,652 - INFO - Aguardando 30 segundos antes de nova tentativa.
+2024-11-07 23:19:44,703 - ERROR - Erro ao fazer upload de 2024-03-31_01-29-27_UTC.mp4 (tentativa 2): Command '['python', 'C:\\Users\\julio\\OneDrive\\Documentos\\BOOT-TIKTPK\\BOOT-TIKTPK\\POWER-BOT\\TiktokAutoUploader\\cli.py', 'upload', '-u', 'con', '-v', 'C:\\Users\\julio\\OneDrive\\Documentos\\BOOT-TIKTPK\\BOOT-TIKTPK\\VIDEOS\\2024-03-31_01-29-27_UTC.mp4', '-t', 'Link in bio\n #Product #Find #Gift #GreatFind']' returned non-zero exit status 1.
+2024-11-07 23:19:44,704 - INFO - Aguardando 30 segundos antes de nova tentativa.
+2024-11-07 23:20:44,768 - INFO - Fazendo upload de: C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\VIDEOS\2024-09-25_21-31-31_UTC.mp4
+2024-11-07 23:20:44,770 - INFO - Iniciando upload do vídeo: C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\VIDEOS\2024-09-25_21-31-31_UTC.mp4 com descrição: Check the link in bio!
+ #NewArrival #Promotion
+2024-11-07 23:21:10,568 - INFO - Upload concluído para: 2024-09-25_21-31-31_UTC.mp4
+2024-11-07 23:21:10,570 - INFO - Vídeo excluído: C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\VIDEOS\2024-09-25_21-31-31_UTC.mp4
+2024-11-07 23:21:40,583 - INFO - Fazendo upload de: C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\VIDEOS\2024-03-26_14-56-49_UTC.mp4
+2024-11-07 23:21:40,585 - INFO - Iniciando upload do vídeo: C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\VIDEOS\2024-03-26_14-56-49_UTC.mp4 com descrição: Check the link in bio!
+ #NewArrival #Promotion
+2024-11-07 23:21:51,877 - INFO - Upload concluído para: 2024-03-26_14-56-49_UTC.mp4
+2024-11-07 23:21:51,878 - INFO - Vídeo excluído: C:\Users\julio\OneDrive\Documentos\BOOT-TIKTPK\BOOT-TIKTPK\VIDEOS\2024-03-26_14-56-49_UTC.mp4

@@ -54,7 +54,7 @@ def baixar_videos():
 def postar_videos():
     
     try:
-        mensagem = ps.posta('contaone')  # Assume que ps.posta() retorna uma string com a mensagem
+        mensagem = ps.posta('redevizinha')  # Assume que ps.posta() retorna uma string com a mensagem
         messagebox.showinfo("Sucesso", mensagem)
     except Exception as e:
         messagebox.showerror("Erro", f"Ocorreu um erro ao postar os vídeos: {e}")
